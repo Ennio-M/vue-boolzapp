@@ -11,21 +11,31 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 </head>
 <body>
+    <!-- inizio pagina -->
     <div id="app">
         <div class="container h-100">
             <div class="row h-100 g-0">
+                <!-- parte sinistra -->
                 <div class="col-4 h-100">
+                    <!-- box profilo -->
                     <div class="header border-end border-2 d-flex justify-content-between align-items-center">
                         <div class="profile d-flex align-items-center">
                             <img class="rounded-circle" src="./img/avatar_io.jpg" alt="Avatar prfilo">
-                            <span>Sofia</span>
+                            <span class="contact-name">Sofia</span>
                         </div>
                         <div class="options">
-                            <i class="fa-solid fa-circle-notch"></i>
-                            <i class="fa-solid fa-message"></i>
-                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                            <div class="option">
+                                <i class="fa-solid fa-circle-notch"></i>
+                            </div>
+                            <div class="option">
+                                <i class="fa-solid fa-message"></i>
+                            </div>
+                            <div class="option">
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                            </div>
                         </div>
                     </div>
+                    <!-- box warning notifiche -->
                     <div class="warning d-flex align-items-center">
                         <div class="bell">
                             <i class="fa-solid fa-bell-slash"></i>
@@ -35,36 +45,47 @@
                             <a href="#">Attiva le notifiche desktop</a>
                         </div>
                     </div>
+                    <!-- box barra di ricerca contatti -->
                     <div class="search-contacts">
-                        <div class="input-group mb-3 p-1">
-                            <span class="input-group-text" id="basic-addon1">
+                        <div class="input-group mb-3 p-1 test">
+                            <span class="input-group-text">
                                 <i class="fa-solid fa-magnifying-glass"></i>
                             </span>
-                            <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat" aria-label="search-contact" aria-describedby="basic-addon1">
-                          </div>
+                            <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat" aria-label="search-contact">
                         </div>
+                    </div>
+                    <!-- box elenco contatti -->
                     <div class="contacts">
                         <ul class="list-group" v-for="(contact, i) in contacts" :key="i">
                             <li class="list-group-item d-flex align-items-center">
                                 <img class="rounded-circle" :src="'./img/avatar' + contact.avatar + '.jpg'" :alt="'Avatar di ' + contact.name">
-                                <span>{{contact.name}}</span>
+                                <span class="contact-name">{{contact.name}}</span>
                             </li>
                           </ul>
                     </div>
                 </div>
+                <!-- parte destra -->
                 <div class="col-8 h-100">
+                    <!-- intestazione chat -->
                     <div class="header d-flex justify-content-between align-items-center">
                         <div class="profile d-flex align-items-center">
                             <img class="rounded-circle" src="./img/avatar_1.jpg" alt="Avatar 1">
-                            <span>Marcello</span>
+                            <span class="contact-name">Marcello</span>
                         </div>
                         <div class="options">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                            <i class="fa-solid fa-paperclip"></i>
-                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                            <div class="option">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </div>
+                            <div class="option">
+                                <i class="fa-solid fa-paperclip"></i>
+                            </div>
+                            <div class="option">
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                            </div>
                         </div>
                     </div>
                     <div class="messages-area">
+                        <!-- area messaggi -->
                         <div class="messages">
                             <div class="message-text sent">
                                 Prova
@@ -73,13 +94,14 @@
                                 Prova
                             </div>
                         </div>
-                        <div class="footer p-3">
+                        <!-- area input testo -->
+                        <div class="footer py-3">
                             <div class="input-group mb-3 p-1">
-                                <span class="input-group-text" id="basic-addon2">
+                                <span class="input-group-text">
                                     <i class="fa-regular fa-face-smile"></i>
                                 </span>
-                                <input type="text" class="form-control" placeholder="Scrivi un messaggio" aria-label="write-message" aria-describedby="basic-addon2">
-                                <span class="input-group-text" id="basic-addon2">
+                                <input type="text" class="form-control rounded" placeholder="Scrivi un messaggio" aria-label="write-message">
+                                <span class="input-group-text">
                                     <i class="fa-solid fa-microphone"></i>
                                 </span>
                               </div>
