@@ -165,5 +165,25 @@ const app = new Vue({
             }
         ],
         current: 0,
+        userMessage: ''
+    },
+    methods: {
+        send() {
+            const newMessage = {
+                date: '10/01/2020 15:50:00',
+                message: this.userMessage,
+                status: 'sent'
+            };
+            const answer = {
+                date: '10/01/2020 15:50:00',
+                message: 'Ok',
+                status: 'received'
+            }
+            this.contacts[this.current].messages.push(newMessage);
+            this.userMessage = '';
+            setTimeout(() => {
+                this.contacts[this.current].messages.push(answer);
+            }, 1000);
+        }
     }
 });

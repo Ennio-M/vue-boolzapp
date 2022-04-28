@@ -97,7 +97,7 @@
                                 <span class="input-group-text">
                                     <i class="fa-regular fa-face-smile"></i>
                                 </span>
-                                <input type="text" class="form-control rounded" placeholder="Scrivi un messaggio" aria-label="write-message">
+                                <input type="text" class="form-control rounded" placeholder="Scrivi un messaggio" aria-label="write-message" v-model="userMessage" @keyup.enter="send()">
                                 <span class="input-group-text">
                                     <i class="fa-solid fa-microphone"></i>
                                 </span>
