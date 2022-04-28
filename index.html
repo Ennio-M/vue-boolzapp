@@ -56,8 +56,8 @@
                     </div>
                     <!-- box elenco contatti -->
                     <div class="contacts">
-                        <ul class="list-group" v-for="(contact, i) in contacts" :key="i">
-                            <li class="list-group-item d-flex align-items-center">
+                        <ul class="list-group">
+                            <li class="list-group-item d-flex align-items-center"  v-for="(contact, i) in contacts" :key="i">
                                 <img class="rounded-circle" :src="'./img/avatar' + contact.avatar + '.jpg'" :alt="'Avatar di ' + contact.name">
                                 <span class="contact-name">{{contact.name}}</span>
                             </li>
