@@ -98,7 +98,10 @@ body{
     font-weight: 500;
 }
 .contacts li:hover{
-    background-color: #FAFAFA;
+    background-color: #F2F2F2;
+}
+.selected{
+    background-color: #dedfdf !important;
 }
 
 /* parte destra */

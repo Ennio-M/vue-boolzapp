@@ -57,7 +57,7 @@
                     <!-- box elenco contatti -->
                     <div class="contacts">
                         <ul class="list-group">
-                            <li class="list-group-item d-flex align-items-center"  v-for="(contact, i) in contacts" :key="i">
+                            <li class="list-group-item d-flex align-items-center" v-for="(contact, i) in contacts" :key="i" :class="{'selected' : current === i}" @click="current = i">
                                 <img class="rounded-circle" :src="'./img/avatar' + contact.avatar + '.jpg'" :alt="'Avatar di ' + contact.name">
                                 <span class="contact-name">{{contact.name}}</span>
                             </li>
@@ -69,8 +69,8 @@
                     <!-- intestazione chat -->
                     <div class="header d-flex justify-content-between align-items-center">
                         <div class="profile d-flex align-items-center">
-                            <img class="rounded-circle" src="./img/avatar_1.jpg" alt="Avatar 1">
-                            <span class="contact-name">Marcello</span>
+                            <img class="rounded-circle" :src="'./img/avatar' + contacts[current].avatar + '.jpg'" :alt="'Avatar di ' + contacts[current].name">
+                            <span class="contact-name">{{contacts[current].name}}</span>
                         </div>
                         <div class="options">
                             <div class="option">
@@ -87,11 +87,8 @@
                     <div class="messages-area">
                         <!-- area messaggi -->
                         <div class="messages">
-                            <div class="message-text sent">
-                                Prova
-                            </div>
-                            <div class="message-text received">
-                                Prova
+                            <div class="message-text" v-for="(item, i) in contacts[current].messages" :key="i" :class="item.status === 'sent' ? 'sent' : 'received'">
+                                <span>{{item.message}}</span>
                             </div>
                         </div>
                         <!-- area input testo -->
