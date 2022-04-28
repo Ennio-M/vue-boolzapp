@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
+body{
+    font-size: 24px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 #app{
     height: 100vh;
     width: 100%;
@@ -16,12 +21,46 @@
 
 .header{
     height: 70px;
+    padding: 0 20px 0 10px;
     background-color: #EAEAEA;
+    border-color: #B1B1B1;
+}
+
+.options{
+    color: #B1B1B1;
+    font-size: 1.2em;
+}
+
+.options i{
+    margin-left: 8px;
+    cursor: pointer;
 }
 
 .warning{
     height: 80px;
     background-color: #8EDAFC;
+}
+
+.bell{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 50px;
+    background-color: #FFFFFF;
+    color: #8EDAFC;
+    margin: 0 15px;
+    font-size: 1.3em;
+}
+
+.warning-text span{
+    font-size: 1.05em;
+    font-weight: 500;
+}
+
+.warning-text a{
+    font-size: .8em;
+    color: #b1b1b1db;
 }
 
 .search-contacts{
@@ -32,4 +71,60 @@
 .contacts{
     height: calc(100% - 200px);
     background-color: #FFFFFF;
+    overflow-y: auto;
+}
+
+.contacts li{
+    cursor: pointer;
+}
+
+.contacts li img, .profile img{
+    width: 50px;
+    margin-right: 10px;
+}
+
+.contacts li span{
+    font-weight: 500;
+}
+
+.contacts li:hover{
+    background-color: #FAFAFA;
+}
+
+.messages-area{
+    height: calc(100% - 70px);
+    width: 100%;
+    background-image: url(../img/mine.jpg);
+}
+
+.messages{
+    height: calc(100% - 70px);
+    padding: 30px;
+    overflow-y: auto;
+}
+
+.footer{
+    height: 70px;
+    background-color: rgba(234, 234, 234, .5);
+}
+
+.message-text{
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 10px;
+    min-width: 30%;
+    max-width: 60%;
+    word-wrap: break-word;
+}
+
+.sent{
+    background-color: #D5F9BA;
+    float: right;
+    clear: both;
+}
+
+.received{
+    background-color: #FFFFFF;
+    float: left;
+    clear: both;
 }
