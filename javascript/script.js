@@ -180,12 +180,12 @@ const app = new Vue({
     methods: {
         send() {
             const newMessage = {
-                date: dayjs().format('HH:mm'),
+                date: dayjs().format(),
                 message: this.userMessage,
                 status: 'sent'
             };
             const answer = {
-                date: dayjs().format('HH:mm'),
+                date: dayjs().format(),
                 message: 'Ok',
                 status: 'received'
             }
@@ -194,7 +194,6 @@ const app = new Vue({
             setTimeout(() => {
                 this.contacts[this.current].messages.push(answer);
             }, 1000);
-            console.log(this.contacts)
         },
         showChat(id) {
             this.change = this.filteredArray.findIndex((contact) => {
@@ -207,6 +206,12 @@ const app = new Vue({
         },
         showDate(item){
             return dayjs(item.date).format('HH:mm')
+        },
+        remove(m) {
+            const i = this.contacts[this.current].messages.findIndex((contact) => {
+                return contact.message === m;
+            })
+            this.contacts[this.current].messages.splice(i,1)
         }
     },
     computed: {
