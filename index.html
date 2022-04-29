@@ -80,7 +80,8 @@
                             <img class="rounded-circle" :src="'./img/avatar' + contacts[current].avatar + '.jpg'" :alt="'Avatar di ' + contacts[current].name">
                             <div>
                                 <span class="contact-name">{{contacts[current].name}}</span>
-                                <p class="last m-0">Ultimo accesso: {{lastAccess()}}</p>
+                                <p class="last m-0" v-if="writing === ''">Ultimo accesso: {{lastAccess()}}</p>
+                                <p class="last m-0" v-if="writing != ''">{{writing}}</p>
                             </div>
 
                         </div>

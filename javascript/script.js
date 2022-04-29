@@ -176,6 +176,7 @@ const app = new Vue({
         change: 0,
         userMessage: '',
         searchContact: '',
+        writing: ''
     },
     methods: {
         send() {
@@ -191,9 +192,23 @@ const app = new Vue({
             }
             this.contacts[this.current].messages.push(newMessage);
             this.userMessage = '';
+            // timer log in utente
             setTimeout(() => {
-                this.contacts[this.current].messages.push(answer);
-            }, 1000);
+                this.writing = 'Online';
+                // timer lettura messaggio
+                setTimeout(() => {
+                    // timer scrittura risposta
+                    this.writing = 'Sta scrivendo...';
+                    //timer log out utente
+                    setTimeout(() => {
+                        this.contacts[this.current].messages.push(answer);
+                        this.writing = 'Online'
+                        setTimeout(() => {
+                            this.writing = '';
+                        }, 2000);
+                    }, 2000)
+                }, 2000)
+            }, 2000)
         },
         showChat(id) {
             this.change = this.filteredArray.findIndex((contact) => {
