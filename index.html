@@ -80,7 +80,7 @@
                             <img class="rounded-circle" :src="'./img/avatar' + contacts[current].avatar + '.jpg'" :alt="'Avatar di ' + contacts[current].name">
                             <div>
                                 <span class="contact-name">{{contacts[current].name}}</span>
-                                <p class="last m-0">Ultimo accesso oggi alle 12:00</p>
+                                <p class="last m-0">Ultimo accesso: {{lastAccess()}}</p>
                             </div>
 
                         </div>

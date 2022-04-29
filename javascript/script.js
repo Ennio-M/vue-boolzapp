@@ -222,6 +222,26 @@ const app = new Vue({
         },
         showLastTime(contact) {
             return dayjs(contact.messages[contact.messages.length - 1].date).format('DD/MM/YY HH:mm')
+        },
+        lastAccess() {
+            // seleziono il contatto
+            const contact = this.contacts[this.current];
+            // creo un array contenente solo i messaggi ricevuti dal contatto
+            const receivedMessages = contact.messages.filter((messages) =>
+                messages.status === 'received'
+            )
+            // salvo la data dell'ultimo messaggio ricevuto
+            const x = receivedMessages[receivedMessages.length - 1].date;
+            // divido la data in giorno e ora
+            let day = 'il ' + dayjs(x).format('DD/MM/YY');
+            const time = dayjs(x).format('HH:mm');
+            // controllo se l'ultimo accesso risale a oggi
+            if(dayjs(x).format('DD/MM/YY') === dayjs().format('DD/MM/YY')) {
+                day = 'oggi'
+            }
+            // creo la data da stampare
+            const access = day + ' alle ' + time;
+            return access
         }
     },
     computed: {
