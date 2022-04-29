@@ -180,35 +180,39 @@ const app = new Vue({
     },
     methods: {
         send() {
-            const newMessage = {
-                date: dayjs().format(),
-                message: this.userMessage,
-                status: 'sent'
-            };
-            const answer = {
-                date: dayjs().format(),
-                message: 'Ok',
-                status: 'received'
-            }
-            this.contacts[this.current].messages.push(newMessage);
-            this.userMessage = '';
-            // timer log in utente
-            setTimeout(() => {
-                this.writing = 'Online';
-                // timer lettura messaggio
+            if(this.userMessage.trim() === '') {
+                return
+            } else {
+                const newMessage = {
+                    date: dayjs().format(),
+                    message: this.userMessage,
+                    status: 'sent'
+                };
+                const answer = {
+                    date: dayjs().format(),
+                    message: 'Ok',
+                    status: 'received'
+                }
+                this.contacts[this.current].messages.push(newMessage);
+                this.userMessage = '';
+                // timer log in utente
                 setTimeout(() => {
-                    // timer scrittura risposta
-                    this.writing = 'Sta scrivendo...';
-                    //timer log out utente
+                    this.writing = 'Online';
+                    // timer lettura messaggio
                     setTimeout(() => {
-                        this.contacts[this.current].messages.push(answer);
-                        this.writing = 'Online'
+                        // timer scrittura risposta
+                        this.writing = 'Sta scrivendo...';
+                        //timer log out utente
                         setTimeout(() => {
-                            this.writing = '';
-                        }, 2000);
+                            this.contacts[this.current].messages.push(answer);
+                            this.writing = 'Online'
+                            setTimeout(() => {
+                                this.writing = '';
+                            }, 2000);
+                        }, 2000)
                     }, 2000)
                 }, 2000)
-            }, 2000)
+            }
         },
         showChat(id) {
             this.change = this.filteredArray.findIndex((contact) => {
