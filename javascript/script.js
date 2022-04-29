@@ -176,13 +176,23 @@ const app = new Vue({
         change: 0,
         userMessage: '',
         searchContact: '',
-        writing: ''
+        writing: '',
+        answers: [
+            'Ok',
+            'Va bene',
+            'Non posso',
+            'Scusa ma sono impegnato',
+            'Il mio falegname con 30.000 lire la faceva meglio',
+            'La peperonata alle sei del mattino?',
+            'A volte dorme di più lo sveglio che il dormiente'
+        ]
     },
     methods: {
         send() {
             if(this.userMessage.trim() === '') {
                 return
             } else {
+                const answerMessage = this.answers[this.getRndInteger(0, this.answers.length - 1)]
                 const newMessage = {
                     date: dayjs().format(),
                     message: this.userMessage,
@@ -190,7 +200,7 @@ const app = new Vue({
                 };
                 const answer = {
                     date: dayjs().format(),
-                    message: 'Ok',
+                    message: answerMessage,
                     status: 'received'
                 }
                 this.contacts[this.current].messages.push(newMessage);
@@ -262,7 +272,10 @@ const app = new Vue({
             // creo la data da stampare
             const access = day + ' alle ' + time;
             return access
-        }
+        },
+        getRndInteger(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) ) + min;
+          }
     },
     computed: {
         filteredArray() {
