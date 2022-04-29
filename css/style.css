@@ -95,6 +95,7 @@ body{
     margin-right: 10px;
 }
 .contact-name{
+    font-size: 1.15em;
     font-weight: 500;
 }
 .contacts li:hover{
@@ -102,6 +103,10 @@ body{
 }
 .selected{
     background-color: #dedfdf !important;
+}
+.last{
+    font-size: .8em;
+    color: #B1B1B1;
 }
 
 /* parte destra */
@@ -135,6 +140,7 @@ body{
 
 /* messaggi */
 .message-text{
+    position: relative;
     margin: 10px 0;
     padding: 15px;
     border-radius: 10px;
@@ -151,4 +157,10 @@ body{
     background-color: #FFFFFF;
     float: left;
     clear: both;
+}
+.message-text p{
+    position: absolute;
+    top: 62%;
+    left: 87%;
+    font-size: .7em;
 }
