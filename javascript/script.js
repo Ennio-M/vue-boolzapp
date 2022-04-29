@@ -213,6 +213,7 @@ const app = new Vue({
                     }, 2000)
                 }, 2000)
             }
+            this.$refs.input.focus();
         },
         showChat(id) {
             this.change = this.filteredArray.findIndex((contact) => {

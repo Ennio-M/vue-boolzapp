@@ -118,9 +118,10 @@
                                 <span class="input-group-text">
                                     <i class="fa-regular fa-face-smile"></i>
                                 </span>
-                                <input type="text" class="form-control rounded" placeholder="Scrivi un messaggio" aria-label="write-message" v-model="userMessage" @keyup.enter="send()">
+                                <input type="text" class="form-control rounded" placeholder="Scrivi un messaggio" aria-label="write-message" v-model="userMessage" @keyup.enter="send()" ref="input">
                                 <span class="input-group-text">
-                                    <i class="fa-solid fa-microphone"></i>
+                                    <i class="fa-solid fa-microphone" v-show="userMessage === ''"></i>
+                                    <i class="fa-solid fa-paper-plane" v-show="userMessage != ''" @click="send()"></i>
                                 </span>
                               </div>
                             </div>
