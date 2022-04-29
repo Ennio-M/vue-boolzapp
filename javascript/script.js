@@ -212,6 +212,16 @@ const app = new Vue({
                 return contact.message === m;
             })
             this.contacts[this.current].messages.splice(i,1)
+        },
+        showLastMessage(contact) {
+            let lastMessage = contact.messages[contact.messages.length - 1].message;
+            if(contact.messages[contact.messages.length - 1].status === 'sent') {
+                lastMessage = 'Tu: ' + lastMessage;   
+            }
+            return lastMessage
+        },
+        showLastTime(contact) {
+            return dayjs(contact.messages[contact.messages.length - 1].date).format('DD/MM/YY HH:mm')
         }
     },
     computed: {

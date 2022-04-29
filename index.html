@@ -63,10 +63,10 @@
                                 <img class="rounded-circle" :src="'./img/avatar' + contact.avatar + '.jpg'" :alt="'Avatar di ' + contact.name">
                                 <div>
                                     <span class="contact-name">{{contact.name}}</span>
-                                    <p class="last">Ultimo messaggio inviato</p>
+                                    <p class="last">{{showLastMessage(contact)}}</p>
                                 </div>
                                 <div class="last ms-auto align-self-start">
-                                    <p>12:00</p>
+                                    <p class="text-end">{{showLastTime(contact)}}</p>
                                 </div>
                             </li>
                           </ul>
